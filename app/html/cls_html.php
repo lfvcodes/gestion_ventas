@@ -76,45 +76,51 @@ class Cls_html
 
       <ul class="menu-inner nav nav-pills nav-flush text-center align-items-center pt-2">
 
+        <li class="menu-item pb-2">
+          <a href="<?= VIEW_ROOT; ?>inicio.php" class="pb-3 fw-bold">
+            <img src="<?= VIEW_ROOT; ?>../assets/img/logo2.png" width="48px" height="48px" alt="">
+          </a>
+        </li>
+
         <li title="Inicio" sc="Inicio" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item active pb-2">
-          <a href="<?php echo VIEW_ROOT; ?>inicio.php" class="menu-link pb-3 fw-bold">
+          <a href="<?= VIEW_ROOT; ?>inicio.php" class="menu-link pb-3 fw-bold">
             <i class="menu-icon tf-icons bx bx-home-circle bx-md"></i>
           </a>
         </li>
 
 
         <li title="Ventas" sc="Ventas" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item">
-          <a href="<?php echo VIEW_ROOT; ?>venta/venta.php" class="menu-link pb-3">
+          <a href="<?= VIEW_ROOT; ?>venta/venta.php" class="menu-link pb-3">
             <i class="menu-icon tf-icons bi bi-building-down bx-md"></i>
           </a>
         </li>
 
         <li title="Productos" sc="Productos" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item">
-          <a href="<?php echo VIEW_ROOT; ?>producto/producto.php" class="menu-link pb-3">
+          <a href="<?= VIEW_ROOT; ?>producto/producto.php" class="menu-link pb-3">
             <i class="menu-icon tf-icons bi bi-boxes bx-md"></i>
           </a>
         </li>
 
         <li title="Categorías" sc="Categorías" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item">
-          <a href="<?php echo VIEW_ROOT; ?>categoria/categoria.php" class="menu-link pb-3">
+          <a href="<?= VIEW_ROOT; ?>categoria/categoria.php" class="menu-link pb-3">
             <i class="menu-icon tf-icons bx bx-tag bx-md"></i>
           </a>
         </li>
 
         <li title="Clientes" sc="Clientes" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item">
-          <a href="<?php echo VIEW_ROOT; ?>cliente/cliente.php" class="menu-link pb-3">
+          <a href="<?= VIEW_ROOT; ?>cliente/cliente.php" class="menu-link pb-3">
             <i class="menu-icon tf-icons bx bx-user-pin bx-md"></i>
           </a>
         </li>
 
         <li title="Vendedores" sc="Vendedores" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item">
-          <a href="<?php echo VIEW_ROOT; ?>vendedor/vendedor.php" class="menu-link pb-3">
+          <a href="<?= VIEW_ROOT; ?>vendedor/vendedor.php" class="menu-link pb-3">
             <i class="menu-icon tf-icons bi bi-person-badge bx-md"></i>
           </a>
         </li>
 
         <li title="Reportes / Estadísticas" sc="Reportes" data-bs-toggle="tooltip" data-bs-placement="right" class="menu-item">
-          <a href="<?php echo VIEW_ROOT; ?>reporte/reporte.php" class="menu-link pb-3">
+          <a href="<?= VIEW_ROOT; ?>reporte/reporte.php" class="menu-link pb-3">
             <i class="menu-icon tf-icons bx bx-table bi bi-file-earmark-pdf bx-md"></i>
           </a>
         </li>
@@ -178,7 +184,7 @@ class Cls_html
               </li>
 
               <li>
-                <a id="btn-logout" class="dropdown-item" href="<?php echo VIEW_ROOT; ?>login/logout.php">
+                <a id="btn-logout" class="dropdown-item" href="<?= VIEW_ROOT; ?>login/logout.php">
                   <i class="bx bx-power-off me-2"></i>
                   <span class="align-middle">Cerrar Sesión</span>
                 </a>

@@ -73,7 +73,6 @@ $objHtml->getHead('Productos');
                               $end = sizeof($tcat);
                               for ($i = 0; $i < $end; $i++) { ?>
                                 <option value="<?php echo $tcat[$i]['cod']; ?>"><?php echo $tcat[$i]['nom'] ?></option>
-
                               <?php } ?>
                             </select>
                           </div>

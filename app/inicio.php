@@ -33,7 +33,7 @@ $fechaActual = date('Y-m-d');
                 <div class="row m-2">
                   <div class="card bg-transparent col mt-1">
                     <div class="card-body">
-                      <img class="img-fluid" src="../assets/img/logo.png" alt="">
+                      <img class="img-fluid" src="../assets/img/logo2.png" alt="">
                     </div>
                   </div>
                 </div>

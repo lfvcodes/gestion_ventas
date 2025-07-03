@@ -1,3 +1,9 @@
+<a href="https://skillicons.dev">
+     <img src="https://skillicons.dev/icons?i=html,css,bootstrap,js,jquery,php,mysql&perline=15" />
+   </a>
+
+##
+
 # Boom Solutions - Sistema de Gestión de Ventas / Sales Management System
 
 ![Logo Boom Solutions](assets/img/logo.png)

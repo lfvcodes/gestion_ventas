@@ -10,7 +10,7 @@ require_once 'cls_user.php';
 $user = new Cls_user;
 ?>
 
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html lang="es">
 <?php
 $objHtml->getHead('Usuarios');
