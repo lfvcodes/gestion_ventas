@@ -1,23 +1,24 @@
-<?php 
+<?php
+#CODE_BY_LFVCODES
 ob_start();
 session_start();
 
-if(isset($_POST) && !empty($_POST) && !empty($_POST['action'])){
+if (isset($_POST) && !empty($_POST) && !empty($_POST['action'])) {
   $post = $_POST;
   $usr = filter_var($_POST['log-username'], FILTER_SANITIZE_STRING);
   $psw = filter_var($post['password'], FILTER_SANITIZE_STRING);
 
-  if($post['action'] === 'enter'){
+  if ($post['action'] === 'enter') {
     require_once '../util/cls_connection.php';
     $bd = new Cls_connection;
 
-    $rs = $bd->prepare('SELECT email, nom_usuario, nivel, log_user, psw FROM pro_2usuario WHERE log_user = ? AND activo = ? LIMIT 1', array($usr,'S'));
-    
-    if($rs->rowCount() > 0){
+    $rs = $bd->prepare('SELECT email, nom_usuario, nivel, log_user, psw FROM pro_2usuario WHERE log_user = ? AND activo = ? LIMIT 1', array($usr, 'S'));
+
+    if ($rs->rowCount() > 0) {
       $row = $rs->fetch();
-      
+
       $storedPsw = $row['psw'];
-      if(password_verify($psw, $storedPsw)){
+      if (password_verify($psw, $storedPsw)) {
         require_once '../util/misc.php';
 
         $_SESSION['pro']['usr'] = array(
@@ -28,7 +29,7 @@ if(isset($_POST) && !empty($_POST) && !empty($_POST['action'])){
           'lvl' => $row['nivel'],
         );
 
-        setBitacora('LOGIN',"INICIAR SESION",array(),$row['log_user']);
+        setBitacora('LOGIN', "INICIAR SESION", array(), $row['log_user']);
         echo '<script>
           window.location.replace("../inicio.php");
         </script>';
@@ -47,8 +48,5 @@ if(isset($_POST) && !empty($_POST) && !empty($_POST['action'])){
             </script>';
     }
   }
-
-
 }
 ob_end_flush();
-?>

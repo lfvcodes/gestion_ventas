@@ -1,20 +1,3 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versión del servidor:         8.0.17 - MySQL Community Server - GPL
--- SO del servidor:              Win64
--- HeidiSQL Versión:             12.6.0.6765
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
 -- Volcando estructura de base de datos para gestion_ventas
 CREATE DATABASE IF NOT EXISTS `gestion_ventas` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `gestion_ventas`;
@@ -28,9 +11,9 @@ CREATE TABLE IF NOT EXISTS `pro_1categoria` (
 
 -- Volcando datos para la tabla gestion_ventas.pro_1categoria: ~4 rows (aproximadamente)
 INSERT IGNORE INTO `pro_1categoria` (`cod_categoria`, `nom_categoria`) VALUES
-	(1, 'Bolsas Plasticas'),
-	(2, 'Productos Quimicos'),
-	(3, 'Higiénicos y Servilletas'),
+	(1, 'Alimentos y Bebidas'),
+	(2, 'Articulos de Oficina'),
+	(3, 'Tecnologia y Electronica'),
 	(4, 'Productos Varios');
 
 -- Volcando estructura para tabla gestion_ventas.pro_1cliente
@@ -88,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `pro_2usuario` (
 
 -- Volcando datos para la tabla gestion_ventas.pro_2usuario: ~1 rows (aproximadamente)
 INSERT IGNORE INTO `pro_2usuario` (`id_usuario`, `log_user`, `email`, `nom_usuario`, `psw`, `nivel`, `activo`, `registro`) VALUES
-	(99999999, 'admin', 'prueba@gmail.com', 'LFVasquez', '$2y$10$Mm5lOJ244h2A0JV6Txaa6.xGJfiBY9rwYHMJ.xOeJAt2mV2AsgHLC', 1, 'S', '2024-02-08 13:33:41');
+	(99999999, 'admin', 'prueba@gmail.com', 'Administrador', '$2y$10$Mm5lOJ244h2A0JV6Txaa6.xGJfiBY9rwYHMJ.xOeJAt2mV2AsgHLC', 1, 'S', '2024-02-08 13:33:41');
 
 -- Volcando estructura para tabla gestion_ventas.pro_2venta
 CREATE TABLE IF NOT EXISTS `pro_2venta` (
@@ -120,10 +103,3 @@ CREATE TABLE IF NOT EXISTS `pro_3dventa` (
   CONSTRAINT `FK_pro_3dventa_pro_2venta` FOREIGN KEY (`id_venta`) REFERENCES `pro_2venta` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
--- Volcando datos para la tabla gestion_ventas.pro_3dventa: ~0 rows (aproximadamente)
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

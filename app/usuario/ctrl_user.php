@@ -1,10 +1,10 @@
-<?php 
-#CONTROLADOR DE TODOS LOS CATALOGOS
+<?php
+#CODE_BY_LFVCODES
 ob_start();
 session_start();
 
-if(isset($_POST) && !empty($_POST) && !empty($_POST['action'])){
-  
+if (isset($_POST) && !empty($_POST) && !empty($_POST['action'])) {
+
   include_once 'cls_user.php';
   require_once '../util/misc.php';
   $user = new Cls_user;
@@ -13,36 +13,36 @@ if(isset($_POST) && !empty($_POST) && !empty($_POST['action'])){
 
   switch ($action) {
     case 'insertUser':
-      
-      if($cc !== $ps){
+
+      if ($cc !== $ps) {
         $_SESSION['pro_alert'] = "alert('warning','Error al intentar Guardar \n Las Confirmación de contraseña no coincide');";
         break;
       }
 
-      $cc = password_hash($cc,PASSWORD_DEFAULT);
-      $params = array($txtid,$loguser,$email,$nom,$cc,$opt_nivel);
-      if($user->setCrudUser('INSERT_USER',$params) ){
+      $cc = password_hash($cc, PASSWORD_DEFAULT);
+      $params = array($txtid, $loguser, $email, $nom, $cc, $opt_nivel);
+      if ($user->setCrudUser('INSERT_USER', $params)) {
         $_SESSION['pro_alert'] = "alert('success','Usuario Agregado Correctamente!');";
-      }else{
+      } else {
         $_SESSION['pro_alert'] = "alert('warning','Error al intentar Guardar');";
-        setBitacora('USUARIOS','AGREGAR USUARIO '.$id,$params,$_SESSION['dck']['usr']['user']);
+        setBitacora('USUARIOS', 'AGREGAR USUARIO ' . $id, $params, $_SESSION['dck']['usr']['user']);
       }
-    break;
+      break;
 
     case 'deleteUser':
-      if($user->setCrudUser('DELETE_USER',array($id)) ){
+      if ($user->setCrudUser('DELETE_USER', array($id))) {
         $_SESSION['pro_alert'] = "alert('success','Usuario Borrado/Desactivado Correctamente!');";
-      }else{
+      } else {
         $_SESSION['pro_alert'] = "alert('warning','Error al intentar Guardar');";
-        setBitacora('USUARIOS','BORRAR/DESACTIVAR USUARIO '.$id,array($id),$_SESSION['dck']['usr']['user']);
+        setBitacora('USUARIOS', 'BORRAR/DESACTIVAR USUARIO ' . $id, array($id), $_SESSION['dck']['usr']['user']);
       }
-    break;
-    
-    default: header("Location: user"); break;
+      break;
+
+    default:
+      header("Location: user");
+      break;
   }
 
   header("Location: user");
-
 }
 ob_end_flush();
-?>
