@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `pro_2usuario` (
 
 -- Volcando datos para la tabla gestion_ventas.pro_2usuario: ~1 rows (aproximadamente)
 INSERT IGNORE INTO `pro_2usuario` (`id_usuario`, `log_user`, `email`, `nom_usuario`, `psw`, `nivel`, `activo`, `registro`) VALUES
-	(99999999, 'admin', 'prueba@gmail.com', 'Administrador', '$2y$10$Mm5lOJ244h2A0JV6Txaa6.xGJfiBY9rwYHMJ.xOeJAt2mV2AsgHLC', 1, 'S', '2024-02-08 13:33:41');
+	(99999999, 'user', 'prueba@user.com', 'Usuario', '$2y$10$Ajwr01PLfmoflYZP9H/bvucsVJ1VK.SExgS7sp/ff9aG5GbKoVaBC', 1, 'S', '2024-02-08 13:33:41');
 
 -- Volcando estructura para tabla gestion_ventas.pro_2venta
 CREATE TABLE IF NOT EXISTS `pro_2venta` (

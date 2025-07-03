@@ -39,11 +39,11 @@ This project is a solution developed as a technical test for **Boom Solutions**.
    - Copy the `.env.example` file and rename it to `.env`.
    - Edit the `.env` file and set your database connection data (`DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME`).
 4. **Acceso al sistema**:
-   - Usuario de prueba: `admin`
-   - Contraseña: `admin*`
+   - Usuario de prueba: `user`
+   - Contraseña: `123456`
      **System access:**
-   - Test user: `admin`
-   - Password: `admin*`
+   - Test user: `user`
+   - Password: `123456`
 5. **Abrir el sistema**:
    - Ingrese a `index.php` desde su navegador web.
      **Open the system:**
