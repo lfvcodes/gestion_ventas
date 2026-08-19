@@ -1,10 +1,10 @@
 <?php
 #CODE_BY_LFVCODES
-define('APP_ROOT', "../");
-define('VIEW_ROOT', "./");
-require './html/cls_html.php';
-require_once './util/misc.php';
-require_once './util/cls_connection.php';
+define('APP_ROOT', "../../");
+define('VIEW_ROOT', "../");
+require '../html/cls_html.php';
+require_once '../util/misc.php';
+require_once '../util/cls_connection.php';
 $objHtml = new Cls_html;
 $bds = new Cls_connection;
 $objHtml->getHead('Inicio');
@@ -33,7 +33,7 @@ $fechaActual = date('Y-m-d');
                 <div class="row m-2">
                   <div class="card bg-transparent col mt-1">
                     <div class="card-body">
-                      <img class="img-fluid" src="../assets/img/logo2.png" alt="">
+                      <img class="img-fluid" src="<?= APP_ROOT ?>assets/img/logo2.png">
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ $fechaActual = date('Y-m-d');
     <script>
       $(document).ready(function() {
         $(".menu-inner .menu-item a:contains('Inicio')").parent('li').addClass('active');
-        $rs = response('venta/ctrl_venta.php', {
+        $rs = response('../venta/ctrl_venta.php', {
           action: "getDashboard"
         });
         $rs = JSON.parse($rs);

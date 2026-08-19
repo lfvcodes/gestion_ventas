@@ -1,4 +1,10 @@
 <?php
 #CODE_BY_LUIZ
-header("Location: ./app/login/login.php");
+ob_start();
+session_start();
+if (!isset($_SESSION) && !isset($_SESSION['pro']['usr'])){
+    header("Location: ./app/login/");
+}else{
+    header("Location: ./app/inicio/");
+}
 ?>

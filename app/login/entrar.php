@@ -11,15 +11,14 @@ if (isset($_POST) && !empty($_POST) && !empty($_POST['action'])) {
   if ($post['action'] === 'enter') {
     require_once '../util/cls_connection.php';
     $bd = new Cls_connection;
-
-    $rs = $bd->prepare('SELECT email, nom_usuario, nivel, log_user, psw FROM pro_2usuario WHERE log_user = ? AND activo = ? LIMIT 1', array($usr, 'S'));
+    $sql = 'SELECT email, nom_usuario, nivel, log_user, psw FROM pro_2usuario WHERE log_user = ? AND activo = ? LIMIT 1';
+    $rs = $bd->prepare($sql, array($usr, 'S'));
 
     if ($rs->rowCount() > 0) {
       $row = $rs->fetch();
 
       $storedPsw = $row['psw'];
       if (password_verify($psw, $storedPsw)) {
-        require_once '../util/misc.php';
 
         $_SESSION['pro']['usr'] = array(
           'log' => true,
@@ -29,23 +28,14 @@ if (isset($_POST) && !empty($_POST) && !empty($_POST['action'])) {
           'lvl' => $row['nivel'],
         );
 
-        setBitacora('LOGIN', "INICIAR SESION", array(), $row['log_user']);
-        echo '<script>
-          window.location.replace("../inicio.php");
-        </script>';
+        header("Location: ../inicio");
       } else {
         unset($_SESSION['pro']);
-        echo '<script>
-                alert("Datos incorrectos");
-                window.location.replace("login.php");
-              </script>';
+        header("Location: ../login");
       }
     } else {
       unset($_SESSION['pro']);
-      echo '<script>
-              alert("Datos incorrectos");
-              window.location.replace("login.php");
-            </script>';
+      header("Location: ../login");
     }
   }
 }

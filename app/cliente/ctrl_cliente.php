@@ -24,7 +24,6 @@ if(isset($_POST) && !empty($_POST) && !empty($_POST['action'])){
       $_SESSION['pro_alert'] = "alert('warning','Error al intentar Guardar');";
     }else{
       $_SESSION['pro_alert'] = "alert('success','Cliente Agregado Correctamente!');";
-      setBitacora('CLIENTES','AGREGAR CLIENTE: '.$post['nac'].$post['id'],$params,$_SESSION['pro']['usr']['user']);
     }
     header("Location: cliente.php");
 

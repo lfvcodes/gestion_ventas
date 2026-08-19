@@ -25,7 +25,6 @@ if (isset($_POST) && !empty($_POST) && !empty($_POST['action'])) {
         $_SESSION['pro_alert'] = "alert('success','Usuario Agregado Correctamente!');";
       } else {
         $_SESSION['pro_alert'] = "alert('warning','Error al intentar Guardar');";
-        setBitacora('USUARIOS', 'AGREGAR USUARIO ' . $id, $params, $_SESSION['dck']['usr']['user']);
       }
       break;
 
@@ -34,7 +33,6 @@ if (isset($_POST) && !empty($_POST) && !empty($_POST['action'])) {
         $_SESSION['pro_alert'] = "alert('success','Usuario Borrado/Desactivado Correctamente!');";
       } else {
         $_SESSION['pro_alert'] = "alert('warning','Error al intentar Guardar');";
-        setBitacora('USUARIOS', 'BORRAR/DESACTIVAR USUARIO ' . $id, array($id), $_SESSION['dck']['usr']['user']);
       }
       break;
 
