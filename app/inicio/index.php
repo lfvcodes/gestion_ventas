@@ -81,8 +81,9 @@ $fechaActual = date('Y-m-d');
     <script>
       $(document).ready(function() {
         $(".menu-inner .menu-item a:contains('Inicio')").parent('li').addClass('active');
-        $rs = response('../venta/ctrl_venta.php', {
-          action: "getDashboard"
+        $rs = response('../controller/', {
+          service: 'venta',
+          task: "getDashboard"
         });
         $rs = JSON.parse($rs);
         $('#tcxc').text($rs['tventa']);

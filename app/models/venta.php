@@ -187,6 +187,7 @@ class venta
     $v = $this->bd->prepareRS('SELECT COUNT(*) AS tventa FROM pro_2venta WHERE ?', array(1));
     $v2 = $this->bd->prepareRS('SELECT COUNT(*) AS tvhoy FROM pro_2venta WHERE DATE(fecha_venta) = ?', array(date('Y-m-d')));
     $data = array('tventa' => $v['tventa'], 'tvhoy' => $v2['tvhoy']);
-    return json_encode($data);
+    echo json_encode($data);
+    exit;
   }
 }
