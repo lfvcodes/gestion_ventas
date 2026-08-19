@@ -1,5 +1,5 @@
 <?php
-#CODE_BY_LUIZ
+#CODE_BY_LFVCODES
 ob_start();
 session_start();
 if (!isset($_SESSION) && !isset($_SESSION['pro']['usr'])){

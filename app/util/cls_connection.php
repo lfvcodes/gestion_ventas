@@ -74,11 +74,20 @@ class Cls_connection
     try {
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute($data);
+      
+      $rowCount = $stmt->rowCount();
       $rs = $stmt;
       $stmt = null;
-      return $rs;
+      
+      // Para UPDATE, retornar el rowCount
+      if (stripos($sql, 'UPDATE') === 0) {
+          return $rowCount;
+      }
+        
+      return $rs; // Para SELECT, retornar el statement
     } catch (PDOException $e) {
       echo "\nERROR: " . $e->getMessage();
+      exit;
       $this->pdo = null;
       return false;
     }

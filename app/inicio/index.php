@@ -28,17 +28,6 @@ $fechaActual = date('Y-m-d');
 
           <div class="container-xxl flex-grow-1 container-p-y">
             <div class="row">
-
-              <div class="col-lg-4 col-md-12">
-                <div class="row m-2">
-                  <div class="card bg-transparent col mt-1">
-                    <div class="card-body">
-                      <img class="img-fluid" src="<?= APP_ROOT ?>assets/img/logo2.png">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <div class="col-lg-8 col-md-12">
                 <div class="row m-2">
 
@@ -68,6 +57,15 @@ $fechaActual = date('Y-m-d');
 
                 </div>
 
+              </div>
+              <div class="col-lg-4 col-md-12">
+                <div class="row m-2">
+                  <div class="card bg-transparent col mt-1">
+                    <div class="card-body">
+                      <img class="img-fluid" src="<?= APP_ROOT ?>assets/img/logo2.png">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

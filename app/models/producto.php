@@ -1,6 +1,8 @@
 <?php
 #CODE_BY_LFVCODES
-class Cls_producto
+include_once '../util/misc.php';
+
+class producto
 {
 
   private $bd;
@@ -19,20 +21,16 @@ class Cls_producto
     );
   }
 
-  public function setNewProd($params)
+  public function insertProduct($params)
   {
-    if ($rs = $this->bd->prepareInsert($this->query['INSERT_PROD'], $params)):
-      return $rs['lastInsertId'];
-    else: return null;
-    endif;
+    $result = $this->bd->prepare($this->query['INSERT_PROD'], $params);
+    return $result !== false;
   }
 
-  public function updateProd($params)
+  public function updateProduct($params)
   {
-    if ($this->bd->prepare($this->query['UPDATE_PROD'], $params)):
-      return true;
-    else: return null;
-    endif;
+    $result = $this->bd->prepare($this->query['UPDATE_PROD'], $params);
+    return $result !== false;
   }
 
   public function getDataProd($id)
@@ -41,8 +39,9 @@ class Cls_producto
     return ($rs->rowCount() > 0) ? $rs->fetch() : false;
   }
 
-  public function getListProduct($post)
+  public function getListProduct()
   {
+    $post = $_POST;
     $sqlQuery = $this->query['VIEW_PROD'];
     if (!empty($post["search"]["value"])) {
       $sqlQuery .= ' WHERE cod_producto LIKE "%' . $post["search"]["value"] . '%" ';
@@ -97,27 +96,28 @@ class Cls_producto
       "data"  =>   $productData
     );
     echo json_encode($output);
+    exit;
   }
 
-  public function delProd($params)
+  public function deleteProduct($params)
   {
-    if ($this->bd->prepare($this->query['DELETE_PROD'], $params)):
-      return true;
-    else: return null;
-    endif;
+    $result = $this->bd->prepare($this->query['DELETE_PROD'], $params);
+    return $result !== false;
   }
 
-  public function getOptionSelectProduct($lk)
+  public function getListOptionProduct($lk)
   {
-    $this->bd = new Cls_connection;
-    #$stk = '(SELECT (SELECT SUM(cant) FROM pro_3dcompra dc WHERE dc.cod_producto = d.cod_producto) - IFNULL( (SELECT SUM(cant) FROM pro_3dventa dv WHERE dv.cod_producto = d.cod_producto),0) )';
+    $lk = $_POST['params'] ?? null;
     $rss = $this->bd->consultar("SELECT d.cod_producto AS id,nom_producto AS text FROM pro_2producto d WHERE d.nom_producto LIKE '%" . $lk . "%' ORDER BY d.nom_producto ASC");
     echo ($rss->rowCount() > 0) ? json_encode($rss->fetchAll()) : json_encode(`<span>No se encontraron resultados</span>`);
+    exit;
   }
 
   public function getProductPrices($id)
   {
+    $id = $_POST['id'];
     $price = $this->bd->prepareAll("SELECT p_base AS pcosto FROM pro_2producto d WHERE cod_producto = ? LIMIT 1", array($id));
-    return json_encode($price);
+    echo json_encode($price);
+    exit;
   }
-} //#END_CLASS
+}

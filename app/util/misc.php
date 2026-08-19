@@ -1,5 +1,28 @@
 <?php 
 
+function sanitizeString($str){
+    return filter_var($str, FILTER_SANITIZE_SPECIAL_CHARS);
+}
+
+function respondJSON($statusCode, $message, $data = null)
+{
+    $response = [
+        'status' => $statusCode,
+        'message' => $message
+    ];
+    
+    // Si hay datos, agregarlos a la respuesta
+    if ($data !== null) {
+        $response['data'] = $data;
+    }
+    
+    // Establecer el código de estado HTTP
+    http_response_code($statusCode);
+    
+    // Retornar el JSON
+    return json_encode($response);
+}
+
 function HexToRgb($color) {
   $color = ltrim($color, '#'); // Elimina el símbolo '#' si está presente
   $rgb = [];
