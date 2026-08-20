@@ -36,8 +36,7 @@ class Cls_html
       <link rel="stylesheet" href="<?= APP_ROOT; ?>assets/vendor/fonts/boxicons.css" />
 
       <link rel="stylesheet" href="<?= APP_ROOT; ?>assets/vendor/css/core.css" class="template-customizer-core-css" />
-      <link rel="stylesheet" href="<?= APP_ROOT; ?>assets/vendor/css/theme-default.css?r=<?php rand(1, 9999) ?>" class="template-customizer-theme-css" />
-      <link rel="stylesheet" href="<?= APP_ROOT; ?>assets/css/demo.css" />
+      <link rel="stylesheet" href="<?= APP_ROOT; ?>assets/vendor/css/theme-gestion.css" class="template-customizer-theme-css" />
       <link rel="stylesheet" href="<?= APP_ROOT; ?>assets/css/bootstrap-icons/bi.css" />
 
       <?php if ($titulo === 'Login'): ?>
@@ -137,7 +136,7 @@ class Cls_html
 
       <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-          <i class="bx bx-menu bx-sm"></i>
+          <i class="bx bx-menu bx-sm text-white"></i>
         </a>
       </div>
 
